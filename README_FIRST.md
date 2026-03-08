@@ -31,8 +31,9 @@ Running the Python backend or Bun frontend directly is not supported here.
 
 ```powershell
 # Clone the repo
-git clone https://github.com/sergio-caracas/voicebox
-cd voicebox
+git clone https://github.com/sergio-caracas/voicebox-docker.git
+
+cd voicebox-docker
 
 # Start with GPU support (recommended)
 docker-compose -f docker-compose.yml -f docker-compose.cuda.yml up -d

@@ -62,7 +62,8 @@
 ## Quick start
 
 ```powershell
-git clone https://github.com/sergio-caracas/voicebox
+git clone https://github.com/sergio-caracas/voicebox-docker.git
+
 cd voicebox
 
 # Start with NVIDIA GPU acceleration (recommended)
