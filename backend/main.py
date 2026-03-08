@@ -1802,6 +1802,22 @@ async def shutdown_event():
     transcribe.unload_whisper_model()
 
 
+
+# ============================================
+# STATIC FILES (web UI - Docker/web deployment)
+# ============================================
+# Serves the built React frontend from backend/static/.
+# This folder is created by the Dockerfile's web build stage.
+# In normal development (no static/ folder present), this block is skipped.
+_static_path = Path(__file__).parent / "static"
+if _static_path.exists() and (_static_path / "index.html").exists():
+    # html=True makes it serve index.html as fallback for unknown paths,
+    # which is required for React Router (client-side SPA routing) to work.
+    # All existing API routes (/profiles, /generate, etc.) still take priority.
+    app.mount("/", StaticFiles(directory=str(_static_path), html=True), name="static")
+
+
+
 # ============================================
 # MAIN
 # ============================================
